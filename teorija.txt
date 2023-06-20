@@ -1,0 +1,31 @@
+Metoda `toLocaleString()` je ugrađena metoda u JavaScriptu koja se koristi za formatiranje brojeva, datuma i vremena prema lokalnim postavkama korisnika. Ona vraća string koji predstavlja odgovarajući lokalizirani prikaz zadane vrijednosti.
+
+Ova metoda ima nekoliko različitih primjena, ovisno o vrsti objekta nad kojim se koristi:
+
+1. **Brojevi**: Kada se `toLocaleString()` primijeni na broj, koristi se lokalni format za prikaz brojeva, uključujući odvajanje tisućica, decimalni separator i broj decimalnih mjesta. Na primjer:
+
+   ```javascript
+   const number = 1234567.89;
+   console.log(number.toLocaleString()); // rezultat će ovisiti o lokalnim postavkama korisnika, npr. "1,234,567.89" u SAD-u
+   ```
+
+2. **Datum i vrijeme**: Kada se `toLocaleString()` primijeni na objekt tipa `Date`, metoda će vratiti lokalizirani prikaz datuma i vremena. Format će se prilagoditi prema lokalnim postavkama korisnika. Na primjer:
+
+   ```javascript
+   const date = new Date();
+   console.log(date.toLocaleString()); // rezultat će ovisiti o lokalnim postavkama korisnika, npr. "6/20/2023, 10:30:45 AM" u SAD-u
+   ```
+
+3. **Polje brojeva ili datuma**: Kada se `toLocaleString()` primijeni na polje brojeva ili datuma, svaki element polja će biti lokaliziran koristeći lokalne postavke. Na primjer:
+
+   ```javascript
+   const numbers = [1000, 2000, 3000];
+   console.log(numbers.toLocaleString()); // rezultat će ovisiti o lokalnim postavkama korisnika, npr. "1,000, 2,000, 3,000" u SAD-u
+
+   const dates = [new Date(), new Date()];
+   console.log(dates.toLocaleString()); // rezultat će ovisiti o lokalnim postavkama korisnika, npr. "6/20/2023, 10:30:45 AM, 6/21/2023, 11:15:20 AM" u SAD-u
+   ```
+
+Metoda `toLocaleString()` koristi lokalne postavke operacijskog sustava ili preglednika kako bi prilagodila prikaz vrijednosti. To znači da će prikazani format ovisiti o jeziku i zemlji korisnika. Na primjer, u Sjedinjenim Američkim Državama će koristiti format koji je uobičajen za taj prostor, dok će u drugim zemljama koristiti lokalno prihvaćene formate.
+
+Ova metoda je korisna kada želite prikazati brojeve, datume ili vremena u obliku koji je intuitivan i razumljiv za korisnike iz različitih lokalnih okruženja.
