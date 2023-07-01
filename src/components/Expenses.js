@@ -1,5 +1,6 @@
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
 
 function Expenses() {
   const expenses = [
@@ -25,7 +26,7 @@ function Expenses() {
   ];
 
   return (
-    <div className="App">
+    <Card className="expenses">
       {/* ovo je kada zelimo da ubacimo ceo objekat od jednom */}
       {/* <ExpenseItem expense={expenses[0]}></ExpenseItem> */}
       {/* a ovo kada zelimo da ubacujemo po deo i deo iz objekta */}
@@ -49,7 +50,7 @@ function Expenses() {
         amount={expenses[3].amount}
         date={expenses[3].date}
       ></ExpenseItem>
-    </div>
+    </Card>
   );
 }
 
