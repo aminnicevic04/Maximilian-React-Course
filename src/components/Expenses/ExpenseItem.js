@@ -1,12 +1,13 @@
+import React, { useState } from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
-  let title = props.title;
+  const [title, setTitle] = useState(props.title); //mora biti pozvana u funkciji, ali ne sme biti u child funkciji
 
   const clickHandler = () => {
-    title = "updated";
+    setTitle("updated!");
   };
 
   return (
