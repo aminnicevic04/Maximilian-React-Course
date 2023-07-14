@@ -6,7 +6,6 @@ function App() {
     <div>
       <NewExpense />
       <Expenses />
-      <Expenses />
     </div>
   );
 }
