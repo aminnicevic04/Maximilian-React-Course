@@ -62,3 +62,44 @@ U JSX-u, prikazujemo trenutnu vrijednost promjenjive "count" unutar `<p>` elemen
 Kada se vrijednost promjenjive ažurira pomoću "setCount" funkcije, React će ponovno izvršiti tijelo komponente i prikazati novu vrijednost promjenjive.
 
 Ovako se koristi useState funkcija u React-u kako bismo definirali i ažurirali lokalno stanje u funkcionalnim komponentama.
+
+
+// onChange()
+U React.js, `onChange()` je događaj (event) koji se aktivira kada se vrednost kontrolnog elementa, poput input polja, selektora (select), itd., promeni tokom interakcije korisnika. Na primer, kada korisnik unese tekst u polje za unos, poziva se `onChange()` događaj, što omogućava da React prati promene vrednosti tog polja i ažurira komponentu na osnovu tih promena.
+
+Sintaksa za `onChange()` izgleda ovako:
+
+```jsx
+<input type="text" onChange={handleChange} />
+```
+
+U ovom primeru, kada korisnik unese ili izmeni tekst u input polju, `handleChange` funkcija će se pozvati.
+
+Kada koristite `onChange()` događaj, često ćete želeti da pratite vrednost kontrolnog elementa u komponenti. Za to možete koristiti `useState` kuku (hook). `useState` je jedan od najčešće korišćenih kuka u React-u koja omogućava komponenti da ima svoje interno stanje.
+
+Evo kako koristiti `useState` u kombinaciji sa `onChange()` događajem:
+
+```jsx
+import React, { useState } from 'react';
+
+const MyComponent = () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <p>Uneli ste: {inputValue}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+U ovom primeru, `useState('')` je inicijalna vrednost stanja `inputValue`, koja je prazan string. `setInputValue` je funkcija koju dobijate od `useState` kuke, koja se koristi za ažuriranje vrednosti stanja `inputValue`. Kada korisnik unese ili izmeni tekst u polju za unos, `handleChange` funkcija se poziva, a zatim postavlja novu vrednost `inputValue` pomoću `setInputValue`, što dovodi do ponovnog renderovanja komponente sa novom vrednošću polja za unos.
+
+Zahvaljujući ovome, vrednost unosa se održava u stanju komponente i može se koristiti u drugim delovima komponente ili prosleđivati drugim komponentama kao prop (svojstvo).
