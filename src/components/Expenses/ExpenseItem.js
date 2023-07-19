@@ -5,7 +5,7 @@ import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
   const [title, setTitle] = useState(props.title); //mora biti pozvana u funkciji, ali ne sme biti u child funkciji
-  console.log("expenseItem evaluated by React");
+  // console.log("expenseItem evaluated by React");
 
   const clickHandler = () => {
     setTitle("updated!");

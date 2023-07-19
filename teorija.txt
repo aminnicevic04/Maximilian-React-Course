@@ -103,3 +103,48 @@ export default MyComponent;
 U ovom primeru, `useState('')` je inicijalna vrednost stanja `inputValue`, koja je prazan string. `setInputValue` je funkcija koju dobijate od `useState` kuke, koja se koristi za ažuriranje vrednosti stanja `inputValue`. Kada korisnik unese ili izmeni tekst u polju za unos, `handleChange` funkcija se poziva, a zatim postavlja novu vrednost `inputValue` pomoću `setInputValue`, što dovodi do ponovnog renderovanja komponente sa novom vrednošću polja za unos.
 
 Zahvaljujući ovome, vrednost unosa se održava u stanju komponente i može se koristiti u drugim delovima komponente ili prosleđivati drugim komponentama kao prop (svojstvo).
+
+//lifting the state up 
+"Lifting the state up" u Reactu može se objasniti kao podizanje stanja komponente. Da bismo bolje razumeli ovu koncepciju, moramo se osvrnuti na osnovne principe React komponenti.
+
+React je JavaScript biblioteka koja se koristi za izgradnju korisničkih interfejsa. Komponente u Reactu su kao samostalni delovi koji mogu sadržavati svoje stanje (state) i prikazivati odgovarajući izgled na osnovu tog stanja. Kada se stanje komponente promeni, React će osvežiti prikaz kako bi odražavao te promene.
+
+"Lifting the state up" se odnosi na situaciju kada stanje koje je inicijalno definisano u nekoj nižoj komponenti (na primer, u nekom detetu u hijerarhiji) premeštamo i držimo na višem nivou u hijerarhiji komponenti, na zajedničkom roditeljskom elementu. To znači da više komponenti može deliti isto stanje.
+
+Ova praksa se često koristi kada više komponenti treba da deli isto stanje, ili kada je stanje potrebno upravljati iz višeg nivoa kako bi se poboljšala efikasnost ili organizacija koda. Takođe, omogućava lakše održavanje aplikacije i smanjenje potencijalnih grešaka.
+
+Kada "liftujemo" stanje komponente na viši nivo, obično to radimo tako što se stanje smešta u roditeljsku komponentu, a zatim se kao prop(svojstvo) prosleđuje detetu. Detetu se takođe prosleđuje funkcija (callback) koja omogućava da dete obavesti roditeljsku komponentu kada je potrebno promeniti stanje.
+
+Evo jednostavnog primera: pretpostavimo da imamo dve komponente, roditeljsku (Parent) i dete (Child):
+
+```jsx
+// Roditeljska komponenta
+function Parent() {
+  const [count, setCount] = React.useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Brojač: {count}</h1>
+      <Child count={count} onIncrement={increment} />
+    </div>
+  );
+}
+
+// Dete komponenta
+function Child({ count, onIncrement }) {
+  return (
+    <div>
+      <button onClick={onIncrement}>Povećaj brojač</button>
+      <p>Trenutni broj: {count}</p>
+    </div>
+  );
+}
+```
+
+U ovom primeru, stanje brojača (count) se nalazi u roditeljskoj komponenti (Parent), a prosleđuje se dete komponenti (Child) putem props-a. Takođe, funkcija za povećanje brojača (increment) se definiše u roditeljskoj komponenti i prosleđuje se detetu kako bi moglo interagovati s tim stanjem.
+
+Na ovaj način, kada korisnik klikne na dugme "Povećaj brojač", dete će pozvati funkciju iz roditeljske komponente i obavestiti je o promeni stanja, koje se potom osvežava u celoj aplikaciji.
