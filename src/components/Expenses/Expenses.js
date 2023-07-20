@@ -24,15 +24,29 @@ const Expenses = () => {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
+    {
+      id: "i3",
+      title: "na kurve",
+      amount: 1000,
+      date: new Date(2021, 11, 10),
+    },
   ];
+
+  function filter(date) {
+    const expense = expenses.filter(
+      (expense) => expense.date.getFullYear().toString() === date
+    );
+    console.log(date);
+    console.log(expense);
+  }
 
   return (
     <div>
-      <ExpensesFilter />
       <Card className="expenses">
         {/* ovo je kada zelimo da ubacimo ceo objekat od jednom */}
         {/* <ExpenseItem expense={expenses[0]}></ExpenseItem> */}
         {/* a ovo kada zelimo da ubacujemo po deo i deo iz objekta */}
+        <ExpensesFilter onChange={filter} />
         <ExpenseItem
           title={expenses[0].title}
           amount={expenses[0].amount}
@@ -52,6 +66,11 @@ const Expenses = () => {
           title={expenses[3].title}
           amount={expenses[3].amount}
           date={expenses[3].date}
+        ></ExpenseItem>
+        <ExpenseItem
+          title={expenses[4].title}
+          amount={expenses[4].amount}
+          date={expenses[4].date}
         ></ExpenseItem>
       </Card>
     </div>
