@@ -5,7 +5,7 @@ Ova metoda ima nekoliko različitih primjena, ovisno o vrsti objekta nad kojim s
 1. **Brojevi**: Kada se `toLocaleString()` primijeni na broj, koristi se lokalni format za prikaz brojeva, uključujući odvajanje tisućica, decimalni separator i broj decimalnih mjesta. Na primjer:
 
    ```javascript
-   const number = 1234567.89;
+   const number = 123567.89;
    console.log(number.toLocaleString()); // rezultat će ovisiti o lokalnim postavkama korisnika, npr. "1,234,567.89" u SAD-u
    ```
 
