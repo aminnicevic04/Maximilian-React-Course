@@ -5,7 +5,7 @@ Ova metoda ima nekoliko različitih primjena, ovisno o vrsti objekta nad kojim s
 1. **Brojevi**: Kada se `toLocaleString()` primijeni na broj, koristi se lokalni format za prikaz brojeva, uključujući odvajanje tisućica, decimalni separator i broj decimalnih mjesta. Na primjer:
 
    ```javascript
-   const number = 1234567.89;
+   const number = 123567.894;
    console.log(number.toLocaleString()); // rezultat će ovisiti o lokalnim postavkama korisnika, npr. "1,234,567.89" u SAD-u
    ```
 
@@ -113,7 +113,7 @@ React je JavaScript biblioteka koja se koristi za izgradnju korisničkih interfe
 
 Ova praksa se često koristi kada više komponenti treba da deli isto stanje, ili kada je stanje potrebno upravljati iz višeg nivoa kako bi se poboljšala efikasnost ili organizacija koda. Takođe, omogućava lakše održavanje aplikacije i smanjenje potencijalnih grešaka.
 
-Kada "liftujemo" stanje komponente na viši nivo, obično to radimo tako što se stanje smešta u roditeljsku komponentu, a zatim se kao prop(svojstvo) prosleđuje detetu. Detetu se takođe prosleđuje funkcija (callback) koja omogućava da dete obavesti roditeljsku komponentu kada je potrebno promeniti stanje.
+Kada "liftujemo" stanje komponente na viši nivo, obično to radimo tako što se stanje smešta u roditeljsku komponentu, a zatim se kao prop (svojstvo) prosleđuje detetu. Detetu se takođe prosleđuje funkcija (callback) koja omogućava da dete obavesti roditeljsku komponentu kada je potrebno promeniti stanje.
 
 Evo jednostavnog primera: pretpostavimo da imamo dve komponente, roditeljsku (Parent) i dete (Child):
 
