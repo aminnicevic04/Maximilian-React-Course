@@ -1,9 +1,11 @@
+import React, { useState } from "react";
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 
 const Expenses = () => {
+  const [filterInfoText, setFilterInfoText] = useState("2019,2021 and 2022");
   const expenses = [
     {
       id: "e1",
@@ -38,6 +40,15 @@ const Expenses = () => {
     );
     console.log(date);
     console.log(expense);
+    if (date === "2019") {
+      setFilterInfoText("2020, 2021 & 2022");
+    } else if (date === "2020") {
+      setFilterInfoText("2019, 2021 & 2022");
+    } else if (date === "2021") {
+      setFilterInfoText("2019, 2020 & 2022");
+    } else {
+      setFilterInfoText("2019, 2020 & 2022");
+    }
   }
 
   return (
@@ -47,6 +58,7 @@ const Expenses = () => {
         {/* <ExpenseItem expense={expenses[0]}></ExpenseItem> */}
         {/* a ovo kada zelimo da ubacujemo po deo i deo iz objekta */}
         <ExpensesFilter onChange={filter} />
+        <p>Data for years {filterInfoText} is hidden.</p>
         <ExpenseItem
           title={expenses[0].title}
           amount={expenses[0].amount}
