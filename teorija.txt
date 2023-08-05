@@ -65,7 +65,7 @@ Ovako se koristi useState funkcija u React-u kako bismo definirali i ažurirali 
 
 
 // onChange()
-U React.js, `onChange()` je događaj (event) koji se aktivira kada se vrednost kontrolnog elementa, poput input polja, selektora (select), itd., promeni tokom interakcije korisnika. Na primer, kada korisnik unese tekst u polje za unos, poziva se `onChange()` događaj, što omogućava da React prati promene vrednosti tog polja i ažurira komponentu na osnovu tih promena.
+U React.js `onChange()` je događaj (event) koji se aktivira kada se vrednost kontrolnog elementa, poput input polja, selektora (select), itd., promeni tokom interakcije korisnika. Na primer, kada korisnik unese tekst u polje za unos, poziva se `onChange()` događaj, što omogućava da React prati promene vrednosti tog polja i ažurira komponentu na osnovu tih promena.
 
 Sintaksa za `onChange()` izgleda ovako:
 
