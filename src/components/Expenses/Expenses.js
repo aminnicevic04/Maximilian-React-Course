@@ -26,12 +26,6 @@ const Expenses = () => {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-    {
-      id: "i3",
-      title: "na kurve",
-      amount: 1000,
-      date: new Date(2021, 11, 10),
-    },
   ];
 
   function filter(date) {
@@ -59,31 +53,14 @@ const Expenses = () => {
         {/* a ovo kada zelimo da ubacujemo po deo i deo iz objekta */}
         <ExpensesFilter onChange={filter} />
         <p>Data for years {filterInfoText} is hidden.</p>
-        <ExpenseItem
-          title={expenses[0].title}
-          amount={expenses[0].amount}
-          date={expenses[0].date}
-        ></ExpenseItem>
-        <ExpenseItem
-          title={expenses[1].title}
-          amount={expenses[1].amount}
-          date={expenses[1].date}
-        ></ExpenseItem>
-        <ExpenseItem
-          title={expenses[2].title}
-          amount={expenses[2].amount}
-          date={expenses[2].date}
-        ></ExpenseItem>
-        <ExpenseItem
-          title={expenses[3].title}
-          amount={expenses[3].amount}
-          date={expenses[3].date}
-        ></ExpenseItem>
-        <ExpenseItem
-          title={expenses[4].title}
-          amount={expenses[4].amount}
-          date={expenses[4].date}
-        ></ExpenseItem>
+        {expenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
       </Card>
     </div>
   );
