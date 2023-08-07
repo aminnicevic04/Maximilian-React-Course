@@ -41,7 +41,7 @@ const Expenses = () => {
     } else if (date === "2021") {
       setFilterInfoText("2019, 2020 & 2022");
     } else {
-      setFilterInfoText("2019, 2020 & 2022");
+      setFilterInfoText("2019, 2020 & 2021");
     }
   }
 
