@@ -58,4 +58,4 @@ export default App;
 //   React.createElement("h2", {}, "Lets get started"),
 //   React.createElement(Expenses, { items: expenses })
 // );
-// kada pisemo kod ovako onda moramo importovati react u svakom prethodnom fajlu
+// kada pisemo kod ovako onda moramo importovati react u svakom prethodnom  fajlu
